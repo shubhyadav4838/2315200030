@@ -56,7 +56,7 @@ SELECT * FROM notifications
 WHERE studentID = 1042 AND isRead = false
 ORDER BY createdAt DESC;
 
-The above given Query is slow and will create the problem, because if there are millions of notifications then it will scan all the documents and find the specific student's unread notifications which will take a lot of time and resources.
+The above given Query is slow and will create the problem, because if there are millions of notifications then it will scan all the documents and find the specific students unread notifications which will take a lot of time and resources.
 
 ** Solution **
 create a Compound Index on {studentId:1, isRead:1}. This allows the engine to instantly locate only the unread documents for that specific user
